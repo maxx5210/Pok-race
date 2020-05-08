@@ -42,13 +42,14 @@ function start() {
             clearInterval(e);
             clearInterval(f);
             alert("la course est finie !");
+            endgame();
         }
     }, 1000);
 
     //pause chrono
     pausec.onclick = function () {
         clearInterval(e);
-        reste = 1200000 - (new Date() - depart);
+        reste = 1201000 - (new Date() - depart);
         clearInterval(f);
         pausec.disabled = true;
         playc.disabled = false;
@@ -88,14 +89,40 @@ function randevent() {
     clearInterval(f);
     pausec.disabled = true;
     playc.disabled = false;
-    reste = 1200000;
+    reste = 1201000;
+}
+
+function endgame() {
+    var text = historique.innerHTML;
+    text = text.replace("<br>", "\n");
+    console.log(text);
+
+
+    const textToBLOB = new Blob([text], {
+        type: 'text/plain'
+    });
+    const sFileName = 'Hitorique Pokérace du ' + new Date() + '.txt';
+
+    let newLink = document.createElement("a");
+    newLink.download = sFileName;
+
+    if (window.webkitURL != null) {
+        newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+    } else {
+        newLink.href = window.URL.createObjectURL(textToBLOB);
+        newLink.style.display = "none";
+        document.body.appendChild(newLink);
+    }
+
+    newLink.click();
+
 }
 var players = [];
 var event = [];
 
 //TimeOut
 var depart;
-var reste = 1200000;
+var reste = 1201000;
 var e;
 var f;
 
