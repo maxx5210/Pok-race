@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Pokérace</title>
+</head>
+
+<body>
+    <div id="preparation">
+        <label for="playerin">Durée de la course</label>
+        <br>
+        <select name="" id="time">
+            <option value="1">1 heure</option>
+            <option value="2">2 heures</option>
+            <option value="3">3 heures</option>
+            <option value="4">4 heures</option>
+            <option value="5">5 heures</option>
+        </select>
+
+        <br>
+        <br>
+
+        <label for="playerin">Entrer le nom d'un joueur</label>
+        <br>
+        <input id="playerin" type="text">
+        <br>
+        <button id="addplayer">Entrer</button>
+
+        <div>
+            <h2>Liste des joueurs</h2>
+            <ul id="playerlist">
+            </ul>
+        </div>
+
+        <label for="eventin">Entrer un évènement</label>
+        <br>
+        <br>
+        <textarea name="" id="eventin" cols="30" rows="10" placeholder="retourner au centre A"></textarea>
+        <button id="addevent">Entrer</button>
+
+        <div>
+            <h2>Liste des évènements</h2>
+            <ul id="eventlist">
+            </ul>
+        </div>
+        <button id="begin">Commencer la course</button>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div id="race" class="hidden">
+        <h2>Chrono</h2>
+        <span id="heure">00</span>
+        <span>h</span>
+        <span id="minute">00</span>
+        <span>m</span>
+        <span id="seconde">00</span>
+        <span>s</span>
+        <br>
+        <button id="pausec">Pause</button><button id="playc">Play</button>
+        <br><br>
+        <button id="resetc">Remettre à 0 (Utilisation unique !)</button>
+        <br><br>
+        <h2>Historique des Event</h2>
+        <div id="history"></div>
+    </div>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
