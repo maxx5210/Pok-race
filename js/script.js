@@ -42,7 +42,7 @@ function start() {
     //pause chrono
     pausec.onclick = function () {
         clearInterval(e);
-        reste = 6000 - (new Date() - depart);
+        reste = 1200000 - (new Date() - depart);
         clearInterval(f);
         pausec.disabled = true;
         playc.disabled = false;
@@ -87,14 +87,14 @@ function randevent() {
     clearInterval(f);
     pausec.disabled = true;
     playc.disabled = false;
-    reste = 6000;
+    reste = 1200000;
 }
 var players = [];
 var event = [];
 
 //TimeOut
 var depart;
-var reste = 6000;
+var reste = 1200000;
 var e;
 var f;
 
