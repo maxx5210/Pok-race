@@ -94,7 +94,22 @@ function randevent() {
 }
 
 function endgame() {
-    var text = "Pokérace finie le " + new Date() + "\n" + "Effectuée sur " + document.getElementById("games").value + "\n" + "ROM randomisée : " + document.getElementById("random").value + "\n \n";
+    var text = "Pokérace finie le " + new Date() + "\n" + "Effectuée sur " + document.getElementById("games").value + "\n" + "ROM randomisée : " + document.getElementById("random").value + "\n" + "Durée de la course : " + document.getElementById("time").value + " heure \n \n";
+
+    text = text + "Liste des joueurs : \n"
+    for (var j = 0; j <= players.length - 1; j++) {
+        text = text + players[j] + "\n";
+    }
+    text = text + "\n \n";
+
+    text = text + "Liste des événements : \n";
+
+    for (var k = 0; k <= event.length - 1; k++) {
+        text = text + event[k] + "\n";
+    }
+
+    text = text + "\n \n";
+
     text = text + "Historique des évènements \n \n" + historique.innerHTML;
     for (var i = 0; i <= text.length - 1; i++) {
         text = text.replace("<br>", "\n");
@@ -105,7 +120,7 @@ function endgame() {
     const textToBLOB = new Blob([text], {
         type: 'text/plain'
     });
-    const sFileName = 'Hitorique Pokérace du ' + new Date() + '.txt';
+    const sFileName = 'Historique Pokérace du ' + new Date() + '.txt';
 
     let newLink = document.createElement("a");
     newLink.download = sFileName;
@@ -247,14 +262,6 @@ document.getElementById("begin").onclick = function () {
         document.getElementById("preparation").classList.add("hidden");
 
         switch (document.getElementById("time").value) {
-            case "0":
-                console.log("debug");
-                res = 0;
-                heure = 0;
-                minute = 0;
-                seconde = 10;
-                start();
-                break;
             case "1":
                 console.log(1);
                 res = 1;
