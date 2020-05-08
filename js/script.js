@@ -77,6 +77,7 @@ function start() {
 }
 
 function randevent() {
+    eplay.play();
     var randp = Math.floor(Math.random() * players.length);
     console.log(randp);
     var rande = Math.floor(Math.random() * event.length);
@@ -93,7 +94,8 @@ function randevent() {
 }
 
 function endgame() {
-    var text = historique.innerHTML;
+    var text = "Pokérace finie le " + new Date() + "\n" + "Effectuée sur " + document.getElementById("games").value + "\n" + "ROM randomisée : " + document.getElementById("random").value + "\n \n";
+    text = text + "Historique des évènements \n \n" + historique.innerHTML;
     for (var i = 0; i <= text.length - 1; i++) {
         text = text.replace("<br>", "\n");
     }
@@ -153,6 +155,13 @@ var eventin = document.getElementById("addevent");
 
 //Son
 var eplay = new Audio("son/damage.mp3");
+
+//Séléction du jeu
+document.getElementById("first").onclick = function () {
+    document.getElementById("jeux").classList.add("hidden");
+    document.getElementById("preparation").classList.remove("hidden");
+
+}
 
 //ajout de joueurs
 playerin.onclick = function () {
