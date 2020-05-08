@@ -94,7 +94,9 @@ function randevent() {
 
 function endgame() {
     var text = historique.innerHTML;
-    text = text.replace("<br>", "\n");
+    for (var i = 0; i <= text.length - 1; i++) {
+        text = text.replace("<br>", "\n");
+    }
     console.log(text);
 
 
