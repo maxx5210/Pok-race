@@ -247,6 +247,14 @@ document.getElementById("begin").onclick = function () {
         document.getElementById("preparation").classList.add("hidden");
 
         switch (document.getElementById("time").value) {
+            case "0":
+                console.log("debug");
+                res = 0;
+                heure = 0;
+                minute = 0;
+                seconde = 10;
+                start();
+                break;
             case "1":
                 console.log(1);
                 res = 1;
