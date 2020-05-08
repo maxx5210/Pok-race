@@ -37,6 +37,12 @@ function start() {
             divminute.innerHTML = minute;
             divseconde.innerHTML = seconde;
         }
+
+        if (heure == 0 && minute == 0 && seconde == 0) {
+            clearInterval(e);
+            clearInterval(f);
+            alert("la course est finie !");
+        }
     }, 1000);
 
     //pause chrono
@@ -67,11 +73,6 @@ function start() {
         historique.innerHTML = "";
         start();
     }
-    if (heure == 0 && minute == 0) {
-        clearInterval(e);
-        alert("la course est finie !");
-    }
-
 }
 
 function randevent() {
