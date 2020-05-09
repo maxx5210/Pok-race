@@ -42,7 +42,7 @@ function start() {
             clearInterval(e);
             clearInterval(f);
             alert("la course est finie !");
-            endgame();
+            winner();
         }
     }, 1000);
 
@@ -93,8 +93,19 @@ function randevent() {
     reste = 1200000;
 }
 
+function winner() {
+    document.getElementById("race").classList.add("hidden");
+    document.getElementById("end").classList.remove("hidden");
+    for (var l = 0; l <= players.length - 1; l++) {
+        document.getElementById("win").innerHTML = document.getElementById("win").innerHTML + "<option value='" + players[l] + "'>" + players[l] + "</option>";
+    }
+}
+
 function endgame() {
-    var text = "Pokérace finie le " + new Date() + "\n" + "Effectuée sur " + document.getElementById("games").value + "\n" + "ROM randomisée : " + document.getElementById("random").value + "\n" + "Durée de la course : " + document.getElementById("time").value + " heure \n \n";
+    document.getElementById("end").classList.add("hidden");
+    document.getElementById("bruh").classList.remove("hidden");
+
+    var text = "Pokérace finie le " + new Date() + "\n" + "Effectuée sur " + document.getElementById("games").value + "\n" + "ROM randomisée : " + document.getElementById("random").value + "\n" + "Durée de la course : " + document.getElementById("time").value + " heure \n" + "Course remportée par : " + document.getElementById("win").value + "\n \n";
 
     text = text + "Liste des joueurs : \n"
     for (var j = 0; j <= players.length - 1; j++) {
@@ -168,6 +179,7 @@ var historique = document.getElementById("history");
 var playerin = document.getElementById("addplayer");
 var eventin = document.getElementById("addevent");
 
+
 //Son
 var eplay = new Audio("son/damage.mp3");
 
@@ -175,7 +187,6 @@ var eplay = new Audio("son/damage.mp3");
 document.getElementById("first").onclick = function () {
     document.getElementById("jeux").classList.add("hidden");
     document.getElementById("preparation").classList.remove("hidden");
-
 }
 
 //ajout de joueurs
